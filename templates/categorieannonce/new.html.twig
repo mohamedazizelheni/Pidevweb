@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Categorieannonce{% endblock %}
+
+{% block body %}
+    <h1>Create new Categorieannonce</h1>
+
+
+
+    <a href="{{ path('app_categorieannonce_index') }}">back to list</a>
+    <div style="display: flex;align-items: center;justify-content: center; ">
+        <div class="card" style="margin-top: 100px" >
+            <div class="card-body" style="margin-top: 20px">
+                <h5 class="card-title">Publier une categorie</h5>
+
+                <!-- General Form Elements -->
+                {{ form_start(form) }}
+
+                </div><!--//nomannonce-->
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-4 col-form-label">Nom du categorie </label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.nomcat,{'attr':{'class':'form-control'}})}}
+                    </div>
+                </div><!--//categorieannonce-->
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-5 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(form.descriptioncat,{'attr':{'class':'form-control'}})}}
+
+                    </div>
+
+
+                    <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                        {{ form_widget(form.Ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+
+                    </div>
+                </div>
+
+
+
+                {{form_end(form)}}<!-- End General Form Elements -->
+
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('app_annonce_index') }}">back to list</a>
+{% endblock %}

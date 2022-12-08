@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorieannonce index{% endblock %}
+
+{% block body %}
+    <h1>Categorieannonce index</h1>
+
+    <table class="table" style="margin:auto;max-width: 900px">
+        <thead>
+            <tr>
+                <th>Idc</th>
+                <th>Nomcat</th>
+                <th>Descriptioncat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieannonce in categorieannonces %}
+            <tr>
+                <td>{{ categorieannonce.idc }}</td>
+                <td>{{ categorieannonce.nomcat }}</td>
+                <td>{{ categorieannonce.descriptioncat }}</td>
+                <td>
+                    <a href="{{ path('app_categorieannonce_show', {'idc': categorieannonce.idc}) }}">show</a>
+                    <a href="{{ path('app_categorieannonce_edit', {'idc': categorieannonce.idc}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorieannonce_new') }}" style="margin-left: 500px">Create new</a>
+{% endblock %}

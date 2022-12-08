@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorieannonce{% endblock %}
+
+{% block body %}
+
+    <br>
+    <br>
+    <br>
+    <h1 style="margin-left: 320px">Categorieannonce</h1>
+
+    <table class="table" style="margin: auto;max-width: 900px">
+        <tbody>
+            <tr>
+                <th>Idc</th>
+                <td>{{ categorieannonce.idc }}</td>
+            </tr>
+            <tr>
+                <th>Nomcat</th>
+                <td>{{ categorieannonce.nomcat }}</td>
+            </tr>
+            <tr>
+                <th>Descriptioncat</th>
+                <td>{{ categorieannonce.descriptioncat }}</td>
+            </tr>
+            <tr>
+                <th>Edit</th>
+                <td><a href="{{ path('app_categorieannonce_edit', {'idc': categorieannonce.idc}) }}">edit</a></td>
+            </tr>
+            <tr>
+                <th>Delete</th>
+                <td>{{ include('categorieannonce/_delete_form.html.twig') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorieannonce_index') }}">back to list</a>
+
+
+
+    {{ include('categorieannonce/_delete_form.html.twig') }}
+{% endblock %}

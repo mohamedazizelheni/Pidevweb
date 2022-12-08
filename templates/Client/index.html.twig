@@ -1,0 +1,59 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Annonce index{% endblock %}
+
+{% block body %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="count">
+        <p> Aujourd'hui est le : {{ "now"|date("m/d/Y") }}</p>
+        <h4> Total des annonces: {{ annonces.getTotalItemCount }} </h4>
+
+
+    </div>
+
+
+    <section class="row" style="margin-left:220px ;">
+
+
+        {% for message in app.flashes('succes') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h1>Liste des Annonce </h1>
+        {% for annonce in annonces %}
+            <div class="card" style="width: 18rem; margin-left:15px;">
+
+                <img src="{{ asset('uploads/'~ annonce.imagea  ) }}"/>
+                <div class="card-body">
+
+                    <h5 class="card-title">Titre: {{ annonce.titrea }}</h5>
+                    <p class="card-text">Description: {{ annonce.descriptiona }}</p>
+                    <p class="card-text">Prix: {{ annonce.prixa }}</p>
+                    <p class="card-text">date: {{ annonce.datecreationa|date("m/d/Y") }}</p>
+                    <p class="card-text">user: {{ annonce.user }}</p>
+                    <p class="card-text">Categorie: {{ annonce.categorieannonce }}</p>
+
+
+
+                    <a class="btn btn-success" href="{{ path('app_annonce_edit', {'idannonce':annonce.idannonce}) }}">Modifier</a>
+                    <a class="btn btn-danger" href="{{ path('app_annonce_delete', {'idannonce':annonce.idannonce}) }}">Supprimer</a>
+
+                    <a class="btn btn-info" href="{{ path('app_annonce_show', {'idannonce':annonce.idannonce}) }}">Detail</a>
+
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    <div class="page-link" >
+        {{ knp_pagination_render(annonces) }}
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Categorieannonce{% endblock %}
+
+{% block body %}
+    <div class="modifierrr" style="margin-left: 500px;margin-top: 70px">
+    <h1>Edit Categorieannonce</h1>
+
+    {{ include('categorieannonce/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_categorieannonce_index') }}">back to list</a>
+
+    {{ include('categorieannonce/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

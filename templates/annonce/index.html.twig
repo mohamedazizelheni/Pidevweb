@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce index{% endblock %}
+
+{% block body %}
+
+
+<section class="row" style="margin-left:320px ;margin-top: 100px">
+    <h1>Liste des Annonce </h1>
+    {% for annonce in annonces %}
+
+    <div class="card" style="width: 18rem; margin-left:15px;">
+
+            <img src="{{ asset('uploads/'~ annonce.imagea  ) }}"/>
+        <div class="card-body">
+
+            <h5 class="card-title">Titre: {{ annonce.titrea }}</h5>
+            <p class="card-text">Description: {{ annonce.descriptiona }}</p>
+            <p class="card-text">Prix: {{ annonce.prixa }}</p>
+            <p class="card-text">date: {{ annonce.datecreationa }}</p>
+            <p class="card-text">user: {{ annonce.user }}</p>
+            <p class="card-text">Categorie: {{ annonce.categorieannonce }}</p>
+
+
+            <a class="btn btn-success" href="{{ path('app_annonce_edit', {'idannonce':annonce.idannonce}) }}">Modifier</a>
+            <a class="btn btn-danger" href="{{ path('app_annonce_delete', {'idannonce':annonce.idannonce}) }}">Supprimer</a>
+
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

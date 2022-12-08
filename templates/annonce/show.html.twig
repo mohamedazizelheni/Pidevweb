@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce{% endblock %}
+
+{% block body %}
+
+    <h1 style="margin: 150px">Annonce</h1>
+
+    <table class="table" style="margin: 150px">
+        <tbody>
+            <tr>
+                <th>Idannonce</th>
+                <td>{{ annonce.idannonce }}</td>
+            </tr>
+            <tr>
+                <th>Titrea</th>
+                <td>{{ annonce.titrea }}</td>
+            </tr>
+            <tr>
+                <th>Descriptiona</th>
+                <td>{{ annonce.descriptiona }}</td>
+            </tr>
+            <tr>
+                <th>Prixa</th>
+                <td>{{ annonce.prixa }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ annonce.datecreationa ? annonce.datecreationa|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Imagea</th>
+                <td>{{ annonce.imagea }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_annonce_index') }}">back to list</a>
+    <a href="{{ path('app_annonce_index') }}">Telecharger les donnes</a>
+
+    <a href="{{ path('app_annonce_edit', {'idannonce': annonce.idannonce}) }}">edit</a>
+
+    {{ include('annonce/_delete_form.html.twig') }}
+{% endblock %}
